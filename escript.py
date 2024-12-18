@@ -21,6 +21,8 @@ def interactAndExit():
     pyautogui.keyDown('e')
     time.sleep(1) 
     pyautogui.keyUp('e')
+    
+    time.sleep(.5)  
 
 def init_wait():
     time.sleep(3)
@@ -29,6 +31,7 @@ def init_wait():
 init_wait()
 try:
     while True:
+        interactAndExit()
 
         moveLeft()
         interactAndExit()
