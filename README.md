@@ -1,3 +1,3 @@
 # Webfishing script
-General moving script to automate fishing buddy pickups.
+"escript.py" - Moving script for the player to cycle between fishing buddy buckets and pickup.
 
