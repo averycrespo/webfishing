@@ -1,6 +1,11 @@
 import pyautogui
 import time
 
+# Binds: 
+# 'e' interact
+# 'tab' open backpack
+# 'w-a-s-d movement 
+
 # Interact with bucket and escape dialog
 def interactAndExit():
     pyautogui.keyDown('e')
