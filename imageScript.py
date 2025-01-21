@@ -10,28 +10,31 @@ logging = False
 show_screenshots = False
 
 # Regions for screenshots
-region1 = (400, 300, 600, 450)
-region2 = (1450, 300, 1650, 450)
-subregion1 = (50, 50, 100, 100)
-subregion2 = (50, 50, 100, 100)
+region1 = (600, 300, 800, 450)
+region2 = (1250, 300, 1450, 450)
+subregion1 = (50, 50, 120, 120)
+subregion2 = (50, 50, 120, 120)
 
 # RBG color for 'caught fish' indicator
 fish_pixel_white = (255, 238, 213)
 
 def collectLeftBucket():
     moveLeft()
+    time.sleep(.3) 
     interactAndExit()
     moveRight()
 
 def collectRightBucket():
     moveRight()
+    time.sleep(.3) 
     interactAndExit()
     moveLeft()
         
 def __main__(init_flag):
     
-    time.sleep(2) 
+    time.sleep(3) 
 
+    # Fresh spawn in 
     if init_flag is True:
         init_setup()
 

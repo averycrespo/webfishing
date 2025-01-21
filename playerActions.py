@@ -13,7 +13,7 @@ def interactAndExit():
     time.sleep(1.3)
     pyautogui.keyDown('tab')
     pyautogui.keyUp('tab')
-    time.sleep(1)
+    time.sleep(1.2)
 
 # Move player left
 def moveLeft():
@@ -27,32 +27,38 @@ def moveRight():
     time.sleep(.3)  
     pyautogui.keyUp('d')
 
+
 # Move player to align buckets properly
 def init_setup():
+    # Bucket
+    pyautogui.keyDown('3') 
+    time.sleep(.25)
+    pyautogui.keyUp('3')
+
+    # enable sprint
+    shiftKey()
+
+    # hit bench
     pyautogui.keyDown('s') 
     time.sleep(1.4)
     pyautogui.keyUp('s')
-
-    pyautogui.keyDown('d') 
-    time.sleep(6)
-    pyautogui.keyUp('d')
+    
+    # move towards wall 
+    i = 0
+    while i < 15:
+        moveRight()
+        i += 1
 
     pyautogui.keyDown('3') 
     time.sleep(.25)
     pyautogui.keyUp('3')
 
     time.sleep(1)
-
-    pyautogui.mouseDown()
-    time.sleep(0.2)
-    pyautogui.mouseUp()
-
-    pyautogui.keyDown('d') 
-    time.sleep(.2)
-    pyautogui.keyUp('d')
+    # right bucket
+    click()
 
     moveRight()
-    moveLeft()
+    shiftKey()
     moveLeft()
 
     pyautogui.keyDown('2') 
@@ -61,6 +67,30 @@ def init_setup():
 
     time.sleep(1)
 
+    click()
+    pyautogui.keyDown('a')  
+    time.sleep(.15) 
+    pyautogui.keyUp('a')
+
+
+def selectRod():
+    pyautogui.keyDown('1') 
+    time.sleep(.25)
+    pyautogui.keyUp('1')
+
+def shiftKey(): 
+    # enable sprint
+    pyautogui.keyDown('shift') 
+    time.sleep(.2)
+    pyautogui.keyUp('shift')
+
+
+def click():
     pyautogui.mouseDown()
     time.sleep(0.2)
+    pyautogui.mouseUp()
+
+def hold_m1():
+    pyautogui.mouseDown()
+    time.sleep(1)
     pyautogui.mouseUp()
