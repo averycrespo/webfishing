@@ -1,5 +1,6 @@
 import pyautogui
 import time
+from interfaceRegions import *
 
 # Binds: 
 # 'e' interact
@@ -15,6 +16,11 @@ def interactAndExit():
     pyautogui.keyUp('tab')
     time.sleep(1.2)
 
+def interact():
+    pyautogui.keyDown('e')
+    pyautogui.keyUp('e')
+    time.sleep(.5)
+
 # Move player left
 def moveLeft():
     pyautogui.keyDown('a')  
@@ -27,6 +33,20 @@ def moveRight():
     time.sleep(.3)  
     pyautogui.keyUp('d')
 
+def moveUp():
+    pyautogui.keyDown('w') 
+    time.sleep(.3)  
+    pyautogui.keyUp('w')
+
+def moveDown():
+    pyautogui.keyDown('s') 
+    time.sleep(.3)  
+    pyautogui.keyUp('s')
+
+def getUp():
+    pyautogui.keyDown('space') 
+    time.sleep(.1)  
+    pyautogui.keyUp('space')
 
 # Move player to align buckets properly
 def init_setup():
@@ -90,7 +110,161 @@ def click():
     time.sleep(0.2)
     pyautogui.mouseUp()
 
+def buy():
+    pyautogui.mouseDown()
+    pyautogui.mouseUp()
+
 def hold_m1():
     pyautogui.mouseDown()
     time.sleep(1)
     pyautogui.mouseUp()
+
+def returnToSpawn():
+    pauseMenu()
+    moveCursorRTS()
+    click()
+    pauseMenu()
+    time.sleep(1.5)
+
+def pauseMenu():
+    pyautogui.keyDown('esc')
+    time.sleep(.1)
+    pyautogui.keyUp('esc')
+
+def baitMenu():
+    pyautogui.keyDown('b')
+    pyautogui.keyUp('b')
+
+def selectBait():
+    baitMenu()
+    selectGildedWormBait()
+
+def moveCursorRTS():
+    pyautogui.moveTo(*SPAWN_POSITION)
+
+def moveCursorWorm():
+    pyautogui.moveTo(*WORM_POSITION)
+
+def moveCursorCricket():
+    pyautogui.moveTo(*CRICKET_POSITION)
+
+def moveCursorLeech():
+    pyautogui.moveTo(*LEECH_POSITION)
+
+def moveCursorMinn():
+    pyautogui.moveTo(*MINN_POSITION)
+
+def moveCursorSquid():
+    pyautogui.moveTo(*SQUID_POSITION)
+
+def moveCursorNaut():
+    pyautogui.moveTo(*NAUT_POSITION)
+
+def moveCursorGworm():
+    pyautogui.moveTo(*GWORM_POSITION) 
+
+def moveCursorSellAll():
+    pyautogui.moveTo(*SELL_BUTTON_POSITION)
+
+def selectWormBait():
+    pyautogui.moveTo(*WORM_BAIT)
+
+def selectCricketBait():
+    pyautogui.moveTo(*CRICKET_BAIT)
+
+def selectLeechBait():
+    pyautogui.moveTo(*LEECH_BAIT)
+
+def selectMinnBait():
+    pyautogui.moveTo(*MINN_BAIT)
+
+def selectSquidBait():
+    pyautogui.moveTo(*SQUID_BAIT)
+
+def selectNautBait():
+    pyautogui.moveTo(*NAUT_BAIT)
+
+def selectGildedWormBait():
+    pyautogui.moveTo(*GWORM_BAIT)
+
+
+def buyAllBait():
+    moveCursorWorm()
+    buy()
+    moveCursorCricket()
+    buy()
+    moveCursorLeech()
+    buy()
+    moveCursorMinn()
+    buy()
+    moveCursorSquid()
+    buy()
+    moveCursorNaut()
+    buy()
+    moveCursorGworm()
+    buy()
+    sellAll()
+    pauseMenu() # Exit buy menu
+
+# Function existing if player is already inside menu
+def sellAll():
+    moveCursorSellAll()
+    buy()
+
+def fromBaitShopToRiver():
+    shiftKey()
+    i = 0
+    while i < 5:
+        moveUp()
+        i = i + 1
+    shiftKey()
+    selectRod()
+
+def returnToBaitShopFromSpawn():
+    shiftKey()
+    i = 0
+    while i < 6:
+        moveLeft()
+        i = i + 1
+    i = 0
+    moveDown()
+    shiftKey()
+    interact()
+
+def moveToOcean():
+    shiftKey()
+
+    pyautogui.keyDown('s') 
+    time.sleep(1.4)
+    pyautogui.keyUp('s')
+    
+    i = 0
+    while i < 15:
+        moveRight()
+        i += 1
+
+    pyautogui.keyDown('s') 
+    time.sleep(1)
+    pyautogui.keyUp('s')
+
+    i = 0
+    while i < 5:
+        moveRight()
+        i += 1
+
+    pyautogui.keyDown('s') 
+    time.sleep(1)
+    pyautogui.keyUp('s')
+
+    i = 0
+    while i < 11:
+        moveRight()
+        i += 1
+    time.sleep(.3)
+    getUp()
+    i = 0
+    while i < 3:
+        moveRight()
+        i += 1
+    shiftKey()
+    selectRod()
