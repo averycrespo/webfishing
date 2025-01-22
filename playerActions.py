@@ -137,7 +137,11 @@ def baitMenu():
 
 def selectBait():
     baitMenu()
+    time.sleep(.5)
     selectGildedWormBait()
+    click()
+    baitMenu()
+    time.sleep(.5)
 
 def moveCursorRTS():
     pyautogui.moveTo(*SPAWN_POSITION)
@@ -189,6 +193,7 @@ def selectGildedWormBait():
 
 
 def buyAllBait():
+    interact()
     moveCursorWorm()
     buy()
     moveCursorCricket()
@@ -229,7 +234,6 @@ def returnToBaitShopFromSpawn():
     i = 0
     moveDown()
     shiftKey()
-    interact()
 
 def moveToOcean():
     shiftKey()
@@ -268,3 +272,16 @@ def moveToOcean():
         i += 1
     shiftKey()
     selectRod()
+
+def castRod():
+    pyautogui.mouseDown()
+    time.sleep(.40)
+    pyautogui.mouseUp()
+    
+def exitFishingDialog():
+    time.sleep(1)
+    pyautogui.keyDown('esc')
+    pyautogui.keyUp('esc')
+    time.sleep(1)
+    castRod()
+
