@@ -114,6 +114,14 @@ def buy():
     pyautogui.mouseDown()
     pyautogui.mouseUp()
 
+def drinkCola():
+    pyautogui.keyDown('5') 
+    time.sleep(0.5)
+    pyautogui.keyUp('5')
+    time.sleep(.3)
+    hold_m1()
+    time.sleep(1.2)
+
 def hold_m1():
     pyautogui.mouseDown()
     time.sleep(1)

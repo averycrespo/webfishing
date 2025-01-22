@@ -29,25 +29,32 @@ def setUpSaltwater():
 
 def fish(string):
     counter = 50
+    drinkCola()
     selectRod()
     time.sleep(.5)
     castRod()
+
     while True:
         time.sleep(.5)
         fishingWheelImage = ImageGrab.grab(bbox=region1)
         pixels = fishingWheelImage.getdata()
 
+
         if ROD_WHEEL_PIXEL_COLOR in pixels:
-            print("Value is visible on the screen!")
+            # print("Value is visible on the screen!")
             reelingFish()
+            counter = counter - 1
             
-        if counter == 0:
+        if counter == 1:
             if string == "F":
                 setUpFreshwater()
+                fish(string)
             elif string == "S":
                 setUpSaltwater()
+                fish(string)
             else:
                 setUpFreshwater()
+                fish("F")
         
         del fishingWheelImage
 
