@@ -17,7 +17,6 @@ def setUpFreshwater():
     returnToBaitShopFromSpawn()
     buyAllBait()
     fromBaitShopToRiver()
-    selectBait()
 
 def setUpSaltwater():
     returnToSpawn()
@@ -25,10 +24,10 @@ def setUpSaltwater():
     buyAllBait()
     returnToSpawn()
     moveToOcean()
-    selectBait()
 
 def fish(string):
     counter = 50
+    selectBait()
     drinkCola()
     selectRod()
     time.sleep(.5)
