@@ -10,7 +10,7 @@ from playerActions import *
 
 region1 = FISHING_WHEEL_REGION
 
-baitCounter = 0
+baitCounter = 50
 
 def setUpFreshwater():
     returnToSpawn()
@@ -25,6 +25,8 @@ def setUpSaltwater():
     returnToSpawn()
     moveToOcean()
 
+
+# Counter issue present
 def fish(string):
     counter = 50
     selectBait()
@@ -32,19 +34,15 @@ def fish(string):
     selectRod()
     time.sleep(.5)
     castRod()
+    print("Outside of true loop", counter)
 
     while True:
         time.sleep(.5)
         fishingWheelImage = ImageGrab.grab(bbox=region1)
         pixels = fishingWheelImage.getdata()
 
-
-        if ROD_WHEEL_PIXEL_COLOR in pixels:
-            # print("Value is visible on the screen!")
-            reelingFish()
-            counter = counter - 1
-            
-        if counter == 1:
+        # Reset 
+        if counter <= 1:
             if string == "F":
                 setUpFreshwater()
                 fish(string)
@@ -54,6 +52,11 @@ def fish(string):
             else:
                 setUpFreshwater()
                 fish("F")
+
+        if ROD_WHEEL_PIXEL_COLOR in pixels:
+            reelingFish()
+            counter -= 1
+            print("After fishing: ", counter)
         
         del fishingWheelImage
 
@@ -71,7 +74,6 @@ def reelingFish():
         del caughtTextBox
     time.sleep(3)
     exitFishingDialog()
-    castRod()
 
 def __main__(arg):
     if arg == 'F':
