@@ -8,6 +8,8 @@
 
 
 ## Scripts
+"fishing.py" - Fishing script to buy bait, sell fish, and to fish at the river or ocean.
+
 "imageScript.py" - Moving script for the player to cycle between fishing buddy buckets and pickup (white pixel indication).
 
 "escript.py" - (Outdated) Moving script for the player to cycle between fishing buddy buckets and pickups.
