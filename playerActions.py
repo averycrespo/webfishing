@@ -289,6 +289,7 @@ def castRod():
 def exitFishingDialog():
     time.sleep(1)
     pyautogui.keyDown('esc')
+    time.sleep(.2)
     pyautogui.keyUp('esc')
     time.sleep(1)
     castRod()

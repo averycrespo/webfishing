@@ -10,7 +10,8 @@ from playerActions import *
 
 region1 = FISHING_WHEEL_REGION
 
-baitCounter = 50
+golden_baitCounter = 15
+max_bait = 50
 
 def setUpFreshwater():
     returnToSpawn()
@@ -28,7 +29,8 @@ def setUpSaltwater():
 
 # Counter issue present
 def fish(string):
-    counter = 50
+    counter = golden_baitCounter
+    #counter = max_bait
     selectBait()
     drinkCola()
     selectRod()
@@ -73,7 +75,7 @@ def reelingFish():
         pixelsAvaliable = caughtTextBox.getdata()
         del caughtTextBox
     time.sleep(3)
-    exitFishingDialog()
+    exitFishingDialog() # potential issue 
 
 def __main__(arg):
     if arg == 'F':
